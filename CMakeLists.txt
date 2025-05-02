@@ -11,5 +11,5 @@ endif()
 
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/*.h ${PROJECT_SOURCE_DIR}/src/*.hpp)
 
-add_executable(${PROJECT_NAME} WIN32 ${SRC_FILES})
+add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})

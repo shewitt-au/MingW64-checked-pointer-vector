@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "GDB / MSYS2",
+        "type": "cppdbg",
+        "request": "launch",
+        "MIMode": "gdb",
+        "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
+        "program": "C:\\projects\\MingW64-checked-vector\\build\\bin\\main.exe",
+        "cwd": "C:\\projects\\MingW64-checked-vector\\build",
+        "args": [],
+        "stopAtEntry": false
+      }]
+}
