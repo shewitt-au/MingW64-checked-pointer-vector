@@ -3,37 +3,36 @@
 using namespace std;
 
 template <class T>
-struct Mallocator
+class checked_alloc
 {
+public:
     typedef T value_type;
-    Mallocator() noexcept {}
+    checked_alloc() noexcept {}
 
-    template<class U> Mallocator(const Mallocator<U>&) noexcept {}
-    template<class U> bool operator==(const Mallocator<U>&) const noexcept
+    template<class U> checked_alloc(const checked_alloc<U>&) noexcept {}
+    template<class U> bool operator==(const checked_alloc<U>&) const noexcept
     {
         return true;
     }
-    template<class U> bool operator!=(const Mallocator<U>&) const noexcept
+    template<class U> bool operator!=(const checked_alloc<U>&) const noexcept
     {
         return false;
     }
     T* allocate(const size_t n) const
     {
-        return new T();
+        return static_cast<T*>(::operator new(n*sizeof(T)));
     }
     void deallocate(T* const p, size_t) const noexcept
     {
-        delete p;
+        ::operator delete(p);
     }
 };
 
 int main()
 {
- //   *(int*)0 = 0;
-
     cout << "Made it" << endl;
 
-    vector<int, Mallocator<int>> v;
+    vector<int, checked_alloc<int>> v;
     v.push_back(3);
 
     return 0;
