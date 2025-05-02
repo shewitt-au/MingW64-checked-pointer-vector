@@ -30,10 +30,9 @@ public:
 
 int main()
 {
-    cout << "Made it" << endl;
-
-    vector<int, checked_alloc<int>> v;
-    v.push_back(3);
+    vector<int, checked_alloc<int>> v = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+    for (auto n : v)
+    cout << n << endl;
 
     return 0;
 }
