@@ -7,9 +7,14 @@
         "request": "launch",
         "MIMode": "gdb",
         "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
-        "program": "C:\\projects\\MingW64-checked-vector\\build\\bin\\main.exe",
-        "cwd": "C:\\projects\\MingW64-checked-vector\\build",
+        "program": "${workspaceFolder}\\build\\bin\\main.exe",
+        "cwd": "${workspaceFolder}\\build",
         "args": [],
-        "stopAtEntry": false
+        "stopAtEntry": false,
+        "environment": [
+        {
+          "name": "PATH",
+          "value": "${env:PATH};C:\\msys64\\mingw64\\bin;"
+        }]
       }]
 }
