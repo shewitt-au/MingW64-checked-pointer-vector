@@ -1,7 +1,5 @@
 #include <vector>
-#include <algorithm>
 #include <iostream>
-#include <cstdint>
 #include <windows.h>
 #include "WriteWatchDLL.h"
 using namespace std;
