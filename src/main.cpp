@@ -34,10 +34,17 @@ public:
 int main()
 {
     // -exec handle SIGSEGV nostop noprint pass
+    // -exec handle SIGSEGV nostop pass
+    int ok;
 
-   vector<int, checked_alloc<int>> v = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+    vector<int*, checked_alloc<int*>> v = {&ok, &ok, &ok};
+    for (int i=0; i<1000; ++i)
+        v.push_back(&ok);
+
     for (auto n : v)
         cout << n << endl;
+
+    v.push_back((int*)0);
 
     return 0;
 }
